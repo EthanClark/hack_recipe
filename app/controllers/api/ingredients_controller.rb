@@ -10,7 +10,7 @@ class Api::IngredientsController < ApplicationController
     if ingredients.save
       render json: ingredients
     else
-      render json: { errors: post.errors }, status: :unprocessable_entity
+      render json: { errors: ingredients.errors }, status: :unprocessable_entity
     end
   end
 
@@ -19,7 +19,7 @@ class Api::IngredientsController < ApplicationController
     if ingredients.update
       render json: ingredients
     else
-      render json: { errors: post.errors }, status: :unprocessable_entity
+      render json: { errors: ingredients.errors }, status: :unprocessable_entity
     end
   end
 

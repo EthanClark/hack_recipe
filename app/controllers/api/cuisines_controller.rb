@@ -9,7 +9,8 @@ class Api::CuisinesController < ApplicationController
     if cuisine.save
       render json: cuisine
     else 
-      render json: { errors: post.errors }, status:
+      binding.pry
+      render json: { errors: cuisine.errors }, status: :unprocessable_entity
     end
   end
 
@@ -18,7 +19,7 @@ class Api::CuisinesController < ApplicationController
     if cuisine.update(cuisine_params)
       render json: cuisine
     else
-      render json: { errors: post.errors }, status:
+      render json: { errors: cuisine.errors }, status: :unprocessable_entity
     end
   end
 
@@ -29,6 +30,6 @@ class Api::CuisinesController < ApplicationController
 
   private
     def cuisine_params
-      params.require(:cuisines).permit(:cName)
+      params.require(:cuisine).permit(:cName, :user_id)
     end
 end

@@ -9,6 +9,8 @@ import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
+import Cuisines from './components/cuisine/Cuisines';
+
 const App = () => (
   <>
     <Navbar />
@@ -18,6 +20,7 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/cuisines' component={Cuisines} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

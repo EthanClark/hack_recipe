@@ -6,14 +6,19 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
+
+import CuisineProvider from './providers/CuisineProvider';
+
 initMiddleware();
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <CuisineProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CuisineProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')

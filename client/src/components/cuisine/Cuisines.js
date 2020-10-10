@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header, List } from 'semantic-ui-react';
 import CuisineForm from './CuisineForm';
+import { AuthConsumer } from '../../providers/AuthProvider';
 import { CuisineConsumer } from '../../providers/CuisineProvider';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ class Cuisines extends Component {
           { this.props.cuisines.map(c =>
             <>
               <Link to={{
-                pathname: `/cuisines/${c.id}`,
+                pathname:`/cuisines/${c.id}`,
                 state: { ...c, }
               }}>
                 {c.cName}
@@ -35,7 +36,7 @@ class Cuisines extends Component {
     return (
       <>
         <Header>Cuisine</Header>
-        <CuisineForm/>
+        <CuisineForm user_id={this.props.user.id}/>
         { this.listAllCuisines()}
       </>
     )
@@ -55,4 +56,17 @@ const ConnectedCuisines = (props) => (
   </CuisineConsumer>
 )
 
-export default ConnectedCuisines; 
+const ConnectedConnectedCuisines = (props) => (
+  <AuthConsumer>
+    {
+      value => (
+        <ConnectedCuisines
+          {...props}
+          {...value}
+        />
+      )
+    }
+  </AuthConsumer>
+)
+
+export default ConnectedConnectedCuisines; 

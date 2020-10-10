@@ -14,7 +14,7 @@ const CuisineProvider = ({children}) => {
     .then( res => {
       setCuisines( res.data )
     })
-    .catch(ett => console.log(err))
+    .catch(err => console.log(err))
   }
 
   const addCuisine = (cuisine) => {
@@ -39,7 +39,7 @@ const CuisineProvider = ({children}) => {
     .catch(err => console.log(err))
   }
 
-  deleteCuisine = (id) => {
+  const deleteCuisine = (id) => {
     axios.delete(`/api/cuisines/${id}`)
     .then( res => {
       setCuisines(cuisines.filter( c => c.id !== id))

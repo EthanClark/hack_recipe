@@ -3,15 +3,11 @@ import { CuisineConsumer } from '../../providers/CuisineProvider'
 import { Form, } from "semantic-ui-react";
 
 class CuisineForm extends Component {
-  state = { cName: "", };
+  state = { cName: "", user_id: this.props.user_id};
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/api/Cuisines", {...this.state, })
-      .then( res => {
-        this.props.add(res.data);
-        this.props.toggleForm();
-      })
+    this.props.addCuisine(this.state)
   }
 
   handleChange = (e, { name, value }) => {

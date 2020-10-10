@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Header, List } from 'semantic-ui-react';
 import DishForm from './DishForm';
-import { DishConsumer } from '../../providers/DishProvider';
+import { DishConsumer } from '../../providers/DishTypeProvider';
 import { Link } from 'react-router-dom';
 
 class Dishs extends Component {
