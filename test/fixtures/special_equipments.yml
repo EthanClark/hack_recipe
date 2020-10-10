@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eName: MyString
+  eQuantity: MyString
+  aEquip: MyString
+  recipe: one
+
+two:
+  eName: MyString
+  eQuantity: MyString
+  aEquip: MyString
+  recipe: two
