@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
 
-  name :api do
+  namespace :api do
     resources :cuisines do
       resources :dish_types 
     end
