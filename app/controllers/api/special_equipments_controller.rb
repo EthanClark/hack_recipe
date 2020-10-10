@@ -35,7 +35,7 @@ class Api::SpecialEquipmentsController < ApplicationController
   end
 
   def special_equipment_params
-    params.require(:special_equipment).permit(:eName, :eQuantity, :aEquip)
+    params.require(:specialEquipments).permit(:eName, :eQuantity, :aEquip)
   end
 
 end

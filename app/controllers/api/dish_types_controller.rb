@@ -35,7 +35,7 @@ class Api::DishTypesController < ApplicationController
   end
 
   def dish_type_params
-    params.require(:dish_type).permit(:dName)
+    params.require(:dishType).permit(:dName)
   end
 
 end
