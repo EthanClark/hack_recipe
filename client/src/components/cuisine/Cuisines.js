@@ -17,7 +17,7 @@ class Cuisines extends Component {
           { this.props.cuisines.map(c =>
             <>
               <Link to={{
-                pathname:`/cuisines/${c.id}`,
+                pathname:`/cuisine/${c.id}`,
                 state: { ...c, }
               }}>
                 {c.cName}

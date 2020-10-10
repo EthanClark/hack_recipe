@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Header, List } from 'semantic-ui-react';
 import DishForm from './DishForm';
-import { DishConsumer } from '../../providers/DishTypeProvider';
+import { DishTypeConsumer } from '../../providers/DishTypeProvider';
 import { Link } from 'react-router-dom';
 
 class Dishs extends Component {
@@ -15,11 +15,11 @@ class Dishs extends Component {
     if (this.props.dishs) {
       return (
         <List divided relaxed>
-          { this.props.dishs.map(c =>
+          { this.props.dishs.map(d =>
             <>
               <Link to={{
                 pathname: `/dishs/${d.id}`,
-                state: { ...d, cuisine_id, cuisine_name, }
+                state: { ...d, cuisine_id: d.cuisine_id}
               }}>
                 {d.cName}
               </Link>
@@ -34,11 +34,11 @@ class Dishs extends Component {
   }
 
   render() {
-    const { cuisine_id, cuisine_name, } = this.props.location.state
+    const { cuisine_id, cName, } = this.props.location.state
     return (
       <>
-        <Header>{cuisine_name} List of Your Dishes</Header>
-        <DishForm cuisine_id={cuisine_id}/>
+        <Header>{cName} List of Your Dishes</Header>
+        <DishForm cuisine_id={this.props.cuisine.id}/>
         { this.listAllDishs()}
       </>
     )
@@ -46,7 +46,7 @@ class Dishs extends Component {
 }
 
 const ConnectedDishs = (props) => (
-  <DishConsumer>
+  <DishTypeConsumer>
     {
       value => (
         <Dishs
@@ -55,7 +55,8 @@ const ConnectedDishs = (props) => (
         />
       )
     }
-  </DishConsumer>
+  </DishTypeConsumer>
 )
+
 
 export default ConnectedDishs; 

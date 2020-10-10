@@ -9,7 +9,6 @@ class Api::CuisinesController < ApplicationController
     if cuisine.save
       render json: cuisine
     else 
-      binding.pry
       render json: { errors: cuisine.errors }, status: :unprocessable_entity
     end
   end

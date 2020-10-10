@@ -3,15 +3,11 @@ import { DishTypeConsumer } from '../../providers/DishTypeProvider'
 import { Form, } from "semantic-ui-react";
 
 class DishForm extends React.Component {
-  state = { dName: "", };
+  state = { dName: "", user_id: this.props.user_id};
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/api/dishs", { ...this.state, })
-      .then( res => {
-        this.props.add(res.data);
-        this.props.toggleForm();
-      })
+    this.props.addCuisine(this.state)
   }
 
   handleChange = (e, { name, value}) => {

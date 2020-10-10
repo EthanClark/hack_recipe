@@ -10,6 +10,8 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
 import Cuisines from './components/cuisine/Cuisines';
+import Cuisine from './components/cuisine/Cuisine';
+import Dishs from './components/dishType/Dishs';
 
 const App = () => (
   <>
@@ -21,6 +23,8 @@ const App = () => (
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/cuisines' component={Cuisines} />
+          <Route exact path='/cuisine/:id' component={Cuisine} />
+          <Route exact path='/dishTypes' component={Dishs} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

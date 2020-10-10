@@ -11,13 +11,6 @@ class Navbar extends Component {
     if (user) {
       return (
         <Menu.Menu position='right'>
-          <Link to='/posts'>
-            <Menu.Item
-              id='posts'
-              name='posts'
-              active={location.pathname === '/posts'}
-            />
-          </Link>
           <Menu.Item
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
@@ -55,6 +48,13 @@ class Navbar extends Component {
               name='home'
               id='home'
               active={this.props.location.pathname === '/'}
+            />
+          </Link>
+          <Link to='/cuisines'>
+            <Menu.Item
+              name='Cuisines'
+              id='Cuisines'
+              active={this.props.location.pathname === '/cuisines'}
             />
           </Link>
             { this.rightNavItems() }
