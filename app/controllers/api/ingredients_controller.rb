@@ -34,6 +34,6 @@ class Api::IngredientsController < ApplicationController
     end
 
     def ingredients_params
-      params.require(:ingredients).permit(:name, :sun_amount)
+      params.require(:ingredients).permit(:iName, :amount, :measurement)
     end
 end
